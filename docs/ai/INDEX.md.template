@@ -1,0 +1,13 @@
+# docs/ai — INDEX {{APP_NAME}}
+
+| Fichier | Contenu | Lire quand |
+|---|---|---|
+| `rule-governance.md` | Ownership · rôles agents · maintenance contexte | Coordination inter-agents · collision · ambiguïté ownership |
+| `INDEX.md` | Ce fichier | Chercher où est documenté X |
+
+## Hors docs/ai/ — références directes
+| Fichier | Contenu |
+|---|---|
+| `AGENTS.md` | Instructions communes toutes IA · router |
+| `GOOGLE-AI.md` | Infra Gemini/Antigravity: auth switch, hooks, UNC paths, checkpoint |
+| `PERPLEXITY-SPACE.md` | Instructions Perplexity: contexte projet, règles lecture-only |

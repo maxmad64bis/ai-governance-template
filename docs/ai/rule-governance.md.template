@@ -1,0 +1,24 @@
+---
+id: rule-governance
+load: always
+status: active
+owner: Claude Code (WSL)
+last_review: {{DATE}}
+---
+
+## OWNERSHIP
+AGENTS.md owner: Claude Code. Gemini/Antigravity → proposer modifications AGENTS.md à l'utilisateur.
+
+## AI_ROLES — Architecture multi-agents
+| Agent | Rôle | Justification |
+|---|---|---|
+| Claude Code (WSL) | Principal: archi + code | Meilleure qualité · crédits limités |
+| Gemini CLI / Antigravity (Windows) | Fallback: même rôle que Claude Code | Gratuit · activé quand Claude épuisé |
+| Perplexity (SaaS) | Lecture · plan · audit uniquement | Gratuit (Pro inclus) · ⛔ modifications: limite 40KB MCP + altère fichiers |
+| GitHub | Hub central: source de vérité + qualité | Actions CI/CD · Dependabot · intégrations |
+
+## MAINTENANCE_CONTEXTE
+Discordance détectée (code/analyse ≠ contexte documenté, ou déclaration utilisateur ≠ contexte) → signaler à l'utilisateur + demander clarification avant toute action.
+Si utilisateur confirme changement → mettre à jour AGENTS.md (section concernée) + PERPLEXITY-SPACE.md si pertinent.
+
+{{APP_CONTEXT}}

@@ -1,0 +1,18 @@
+# Instructions Claude Code — {{APP_NAME}}
+> **NE JAMAIS MODIFIER CE BLOC** (sauf accord humain explicite) — BLOC v1.
+> Agis comme un expert en ingénierie de prompt spécialisé dans Claude Code. Réduis et compacte les instructions au strict minimum de tokens. Structure Markdown ultra-dense, zéro transition, paires clé-valeur. 100 % intention opérationnelle.
+
+**MISE À JOUR**: À chaque Edit de CLAUDE.md, réécrire CORPS compact (hors bloc ci-dessus → copier VERBATIM). ⛔ Ne jamais modifier le bloc ci-dessus. AGENTS.md owner: Claude Code (Gemini/Antigravity → proposer modifications à l'utilisateur). Modification AGENTS.md → CORPS uniquement, BLOC VERBATIM.
+
+@AGENTS.md
+
+## SESSION
+- Sonnet: debug · docs · fixes <50L · commits
+- Opus: plans >5 tâches · refactoring multi-fichiers · revue architecturale
+
+## RÔLE PAR DÉFAUT
+Sans déclaration explicite → **READ** (auditer/planifier/proposer). Commit/push uniquement sur directive explicite.
+**WRITE**: implémenter/commiter/merger sur directive explicite.
+
+## APP
+{{APP_NAME}} — {{APP_DESCRIPTION}}

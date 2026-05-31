@@ -1,0 +1,68 @@
+# AGENTS.md — {{APP_NAME}} (instructions communes)
+<!-- v1.0 {{DATE}} -->
+> **NE JAMAIS MODIFIER CE BLOC** (sauf accord humain explicite) — BLOC v1.
+> Agis comme un expert en ingénierie de prompt. Réduis et compacte ces instructions au strict minimum de tokens. Structure Markdown ultra-dense, zéro transition, paires clé-valeur. 100 % intention opérationnelle.
+> MISE À JOUR : modifier le CORPS du fichier uniquement → réécrire compact. Ce bloc → copier VERBATIM, sans compression ni paraphrase. ⛔ Toute modification de ce bloc = violation de règle.
+
+---
+
+## PROJET
+Repo: {{REPO}}
+Stack: {{STACK}}
+{{STACK_CONSTRAINTS}}
+
+## COMMANDES
+Tests: <!-- à compléter -->
+Build: <!-- à compléter -->
+
+## RÔLE & DIRECTIVES
+Inquiry par défaut (analyse, conseil, plan). Directive explicite requise pour toute modification fichier, commit ou push.
+Modification fichiers: Directive claire requise. Git: jamais commit/push sans autorisation explicite.
+Brièveté: réponses directes, pas de préambule sauf demande.
+Validation: vérifier par tests avant de confirmer fin de tâche.
+
+## ROUTEUR
+| TASK | Lire avant action |
+|---|---|
+| `BEFORE_COMMIT` | relire AGENTS.md + README.md |
+| `EDIT_INFRA` (checkpoint, switch, hooks) | GOOGLE-AI.md |
+| Coordination inter-agents / collision | `docs/ai/rule-governance` |
+| `EDIT_DOCUMENTATION` | `docs/ai/INDEX` |
+| Créer nouvelle app | `maxmad64bis/ai-governance-template` |
+
+## RÉSILIENCE APP — RÈGLE CARDINALE
+⛔ Jamais demander à l'utilisateur de: vider cache, ouvrir la console, supprimer des fichiers, redémarrer manuellement un service, ou toute autre intervention technique.
+L'app doit détecter et corriger elle-même les états invalides.
+Tout fix qui nécessite une action manuelle de l'utilisateur = fix incomplet.
+
+## DISCIPLINE DE VALIDATION
+Avant tout fix: confirmer cause racine dans code/tests.
+Analyse externe (IA): reproduire validation localement avant d'implémenter.
+Max 1 proposition par round · si échec → rediagnostiquer, pas variante.
+⛔ Pattern interdit: "probablement X" → fix → échec → "probablement Y".
+
+## GIT
+Branches: dev → main
+`git pull --rebase` avant tout push. ⛔ `--force` sur `dev`/`main`.
+Push systématique après validation. Merge: `git merge --no-edit`.
+Avant commit: vérifier `git status` + `git diff HEAD`.
+
+## UNICODE (JS/TS)
+UTF-8 natif. ⛔ `\uXXXX` interdit U+00C0–U+017E (ex: é, à, ç).
+
+## FICHIERS VOLUMINEUX
+>2000 lignes → vérifier nb lignes d'abord. Lire par morceaux si dépassé.
+
+## CONTEXTE & DÉCISIONS
+
+### Projet
+<!-- à compléter: contexte, objectifs, horizon -->
+
+Coordination inter-agents + ownership → `docs/ai/rule-governance.md`
+
+### Outillage token & comptes
+**Checkpoint/resume** — `resume` après `/clear` → lit `~/.claude/CHECKPOINT.md` → reprend.
+Infra Gemini/Antigravity (auth switch, hooks impl, UNC paths) → voir `GOOGLE-AI.md`
+
+## OWNERSHIP
+→ `docs/ai/rule-governance.md`
