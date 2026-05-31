@@ -3,6 +3,7 @@
 | Fichier | Contenu | Lire quand |
 |---|---|---|
 | `rule-governance.md` | Ownership · rôles agents · maintenance contexte | Coordination inter-agents · collision · ambiguïté ownership |
+| `rule-infra.md` | Hub checkpoint · auth switch · infra Gemini/Antigravity | `EDIT_INFRA` · hooks · UNC paths · auth switch |
 | `INDEX.md` | Ce fichier | Chercher où est documenté X |
 
 ## Hors docs/ai/ — références directes

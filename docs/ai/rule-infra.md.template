@@ -1,0 +1,20 @@
+---
+id: rule-infra
+load: on-demand
+status: active
+owner: Claude Code (WSL)
+last_review: {{DATE}}
+---
+
+## CHECKPOINT_RESUME
+Détails complets → GOOGLE-AI.md § Outillage checkpoint
+Résumé: `resume` après `/clear` → lit CHECKPOINT.md agent actif → reprend.
+Hooks: `PreCompact` (Claude/Antigravity) · `PreCompress` (Gemini CLI).
+
+## AUTH_SWITCH
+Détails complets → GOOGLE-AI.md § Auth switch — implémentation
+Résumé: symlinks oauth_creds / antigravity-oauth-token · scripts switch-gemini.ps1 / switch-agy.ps1.
+
+## INFRA_AGENTS
+Règles Antigravity critiques → GOOGLE-AI.md § Antigravity — règles critiques
+UNC path WSL: `\\wsl.localhost\Ubuntu-24.04\home\{{WSL_USER}}\{{APP_NAME}}`
