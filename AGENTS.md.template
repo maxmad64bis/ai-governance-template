@@ -41,6 +41,10 @@ Analyse externe (IA): reproduire validation localement avant d'implémenter.
 Max 1 proposition par round · si échec → rediagnostiquer, pas variante.
 ⛔ Pattern interdit: "probablement X" → fix → échec → "probablement Y".
 
+## PROTECTION FICHIERS — RÈGLE ABSOLUE
+⛔ **JAMAIS supprimer** un fichier sans confirmation explicite.
+⛔ **JAMAIS** `git stash drop` ou `git stash clear` sans confirmation.
+
 ## GIT
 Branches: dev → main
 `git pull --rebase` avant tout push. ⛔ `--force` sur `dev`/`main`.
