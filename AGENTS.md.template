@@ -1,8 +1,8 @@
 # AGENTS.md — {{APP_NAME}} (instructions communes)
-<!-- v1.0 {{DATE}} -->
-> **NE JAMAIS MODIFIER CE BLOC** (sauf accord humain explicite) — BLOC v1.
-> Agis comme un expert en ingénierie de prompt. Réduis et compacte ces instructions au strict minimum de tokens. Structure Markdown ultra-dense, zéro transition, paires clé-valeur. 100 % intention opérationnelle.
-> MISE À JOUR : modifier le CORPS du fichier uniquement → réécrire compact. Ce bloc → copier VERBATIM, sans compression ni paraphrase. ⛔ Toute modification de ce bloc = violation de règle.
+<!-- v2.0 {{DATE}} — révisé suite alignement bonnes pratiques officielles Anthropic (2026-06-18) -->
+> **NE JAMAIS MODIFIER CE BLOC** (sauf accord humain explicite) — BLOC v2.
+> Agis comme un expert en ingénierie de prompt. Compacte ces instructions au minimum de tokens nécessaire, mais garde une justification courte (1 ligne) pour toute règle non évidente — le contexte améliore le respect des règles par le modèle (doc officielle Claude). Markdown structuré (headers, listes), 100 % intention opérationnelle, pas de remplissage. Réserve `⛔`/langage impératif fort aux actions destructives ou difficiles à inverser ; phrase les autres règles normalement pour éviter le sur-déclenchement sur modèles récents.
+> MISE À JOUR : modifier le CORPS du fichier uniquement → réécrire compact. Ce bloc → copier VERBATIM, sans compression ni paraphrase. Toute modification de ce bloc nécessite accord humain explicite.
 
 ---
 
@@ -31,15 +31,10 @@ Validation: vérifier par tests avant de confirmer fin de tâche.
 | Créer nouvelle app | `maxmad64bis/ai-governance-template` |
 
 ## RÉSILIENCE APP — RÈGLE CARDINALE
-⛔ Jamais demander à l'utilisateur de: vider cache, ouvrir la console, supprimer des fichiers, redémarrer manuellement un service, ou toute autre intervention technique.
-L'app doit détecter et corriger elle-même les états invalides.
-Tout fix qui nécessite une action manuelle de l'utilisateur = fix incomplet.
+Ne pas demander à l'utilisateur de vider cache, ouvrir la console, supprimer des fichiers, redémarrer un service ou toute autre intervention technique manuelle — l'app doit détecter et corriger elle-même les états invalides. Raison: un fix qui dépend d'une action manuelle utilisateur est un fix incomplet.
 
 ## DISCIPLINE DE VALIDATION
-Avant tout fix: confirmer cause racine dans code/tests.
-Analyse externe (IA): reproduire validation localement avant d'implémenter.
-Max 1 proposition par round · si échec → rediagnostiquer, pas variante.
-⛔ Pattern interdit: "probablement X" → fix → échec → "probablement Y".
+Avant tout fix: confirmer cause racine dans code/tests. Analyse externe (IA): reproduire validation localement avant d'implémenter. Max 1 proposition par round, si échec rediagnostiquer plutôt que tenter une variante au hasard — éviter le pattern "probablement X" → fix → échec → "probablement Y" sans nouvelle info.
 
 ## PROTECTION FICHIERS — RÈGLE ABSOLUE
 ⛔ **JAMAIS supprimer** un fichier sans confirmation explicite.
@@ -47,15 +42,16 @@ Max 1 proposition par round · si échec → rediagnostiquer, pas variante.
 
 ## GIT
 Branches: dev → main
+⛔ Commit direct sur `main` interdit — branche de travail : `dev`.
 `git pull --rebase` avant tout push. ⛔ `--force` sur `dev`/`main`.
-Push systématique après validation. Merge: `git merge --no-edit`.
+Push dev systématique après livrable. Merge dev→main : demander confirmation en fin de session. Merge: `git merge --no-edit`.
 Avant commit: vérifier `git status` + `git diff HEAD`.
 
 ## UNICODE (JS/TS)
-UTF-8 natif. ⛔ `\uXXXX` interdit U+00C0–U+017E (ex: é, à, ç).
+UTF-8 natif. Éviter `\uXXXX` pour U+00C0–U+017E (ex: é, à, ç) — préférer le caractère direct.
 
 ## FICHIERS VOLUMINEUX
->2000 lignes → vérifier nb lignes d'abord. Lire par morceaux si dépassé.
+>2000 lignes: vérifier nb lignes d'abord, lire par morceaux si dépassé.
 
 ## CONTEXTE & DÉCISIONS
 

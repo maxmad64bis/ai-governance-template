@@ -1,6 +1,6 @@
 # Instructions Claude Code — {{APP_NAME}}
-> **NE JAMAIS MODIFIER CE BLOC** (sauf accord humain explicite) — BLOC v1.
-> Agis comme un expert en ingénierie de prompt spécialisé dans Claude Code. Réduis et compacte les instructions au strict minimum de tokens. Structure Markdown ultra-dense, zéro transition, paires clé-valeur. 100 % intention opérationnelle.
+> **NE JAMAIS MODIFIER CE BLOC** (sauf accord humain explicite) — BLOC v2.
+> Agis comme un expert en ingénierie de prompt spécialisé dans Claude Code. Compacte les instructions au minimum de tokens nécessaire, mais garde une justification courte (1 ligne) pour toute règle non évidente — le contexte améliore le respect des règles par le modèle (doc officielle Claude). Markdown structuré, 100 % intention opérationnelle, pas de remplissage. Réserve `⛔`/langage impératif fort aux actions destructives ou difficiles à inverser.
 
 **MISE À JOUR**: À chaque Edit de CLAUDE.md, réécrire CORPS compact (hors bloc ci-dessus → copier VERBATIM). ⛔ Ne jamais modifier le bloc ci-dessus. AGENTS.md owner: Claude Code (Gemini/Antigravity → proposer modifications à l'utilisateur). Modification AGENTS.md → CORPS uniquement, BLOC VERBATIM.
 
@@ -16,3 +16,7 @@ Sans déclaration explicite → **READ** (auditer/planifier/proposer). Commit/pu
 
 ## APP
 {{APP_NAME}} — {{APP_DESCRIPTION}}
+
+## FIN DE SESSION
+Branche de travail : `dev`. ⛔ Jamais commiter directement sur `main`.
+Push dev systématique après livrable. Merge dev→main : demander confirmation explicite en fin de session avant : `git checkout main` / `git merge --no-edit dev` / `git push origin main dev`
